@@ -1,24 +1,32 @@
-const mongoose = require('mongoose')
-const theatreSchema = new mongoose.Schema({
-    name : {
-        type : String,
-        required : true
-    },
-    movies : [{
-        movie : {
-            type : mongoose.Schema.Types.ObjectID,
-            ref : "movies",
-            required : true
-        },
-        price : {
-            type : Number,
-            required : true
-        },
-        seatsAvailable : {
-            type : Number,
-            required : true
-        }
-    }]
-})
+const mongoose = require('mongoose');
 
-module.exports = mongoose.model("Theatres" , theatreSchema)
+const theatreSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    movies: [{
+        movieID: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "movies",
+            required: true
+        },
+        price: {
+            type: Number,
+            required: true
+        },
+        seatsAvailable: {
+            type: Number,
+            required: true
+        }
+    }],
+    location: {
+        type: String,
+        // required: true
+    },
+    capacity: {
+        type: Number
+    }
+});
+
+module.exports = mongoose.model("theatres", theatreSchema);
