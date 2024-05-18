@@ -25,7 +25,8 @@ const theatreSchema = new mongoose.Schema({
         // required: true
     },
     capacity: {
-        type: Number
+        type: Number,
+        default : 60
     }
 });
 

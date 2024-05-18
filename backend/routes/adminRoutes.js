@@ -8,22 +8,22 @@ const Booking = require('../models/bookingModel');
 const router = express.Router();
 
 // Middleware to verify admin token
-const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' });
-  }
-  jwt.verify(token, 'your_secret_key', (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
-    req.userId = decoded.userId;
-    next();
-  });
-};
+// const verifyToken = req, res, next) => {
+//   const token = req.headers.authorization;
+//   if (!token) {
+//     return res.status(401).json({ message: 'Unauthorized' });
+//   }
+//   jwt.verify(token, 'your_secret_key', (err, decoded) => {
+//     if (err) {
+//       return res.status(401).json({ message: 'Unauthorized' });
+//     }
+//     req.userId = decoded.userId;
+//     next();
+//   });
+// };
 
 // Add movie route
-router.post('/add-movie'/*, verifyToken*/, async (req, res) => {
+router.post('/add-movie', /*verifyToken */ async (req, res) => {
   try {
     const { movie_name,image,discription,languages,director,duration,release_date} = req.body;
     const newMovie = new Movie({ movie_name,image,discription,languages,director,duration,release_date });
@@ -48,7 +48,7 @@ router.get('/get-theatre' , async (req,res)=>{
 })
 
 // Add theatre route
-router.post('/add-theatre'/*, verifyToken*/, async (req, res) => {
+router.post('/add-theatre', /*verifyToken */ async (req, res) => {
   try {
     const { name,movies } = req.body;
     const postedTheatre = await Theatre.create({name,movies });
@@ -63,7 +63,7 @@ router.post('/add-theatre'/*, verifyToken*/, async (req, res) => {
 });
 
 // View bookings route
-router.get('/view-bookings'/*, verifyToken*/, async (req, res) => {
+router.get('/view-bookings', /*verifyToken */ async (req, res) => {
   try {
     const bookings = await Booking.find({}).populate('userID').populate('movieID').populate('theatreID');
     res.status(200).json(bookings);
