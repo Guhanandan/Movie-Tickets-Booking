@@ -8,22 +8,19 @@ const router = express.Router();
 // Search movies route
 router.get('/search', async (req, res) => {
   try {
-    const { name, date, theatreName } = req.query;
-
-    if (name) {
-      query.name = { $regex: name, $options: 'i' };
+    const { movieName, releaseDate, theatreName } = req.query;
+    const query = {}
+    if (movieName) {
+      query['movies.movieID.movie_name'] = { $regex: movieName, $options: 'i' };
     }
-    if (date) {
-      query.date = date;
+    if (releaseDate) {
+      query['movies.movieID.release_date'] = releaseDate;
     }
     if (theatreName) {
-      const theatre = await Theatre.find({ name:{$regex :theatreName , $options : 'i'}});
-      if (!theatre) {
-        return res.status(404).json({ message: 'Theatre not found' });
-      }
-      res.status(200).json(theatre)
+      query.name = { $regex: new RegExp('^' + theatreName + '$', 'i') }
     }
-
+    const availableTheatres = await Theatre.find(query).populate('movies.movieID')
+    res.status(200).json(availableTheatres)
     
   } catch (error) {
     console.error(error);
