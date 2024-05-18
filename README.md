@@ -1,4 +1,6 @@
 # Movie-Tickets-Booking Application
+
+## This project involves creating a web application for movie ticket booking with different functionalities for users and administrators
 ![Screenshot 2024-05-17 221450](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/5b99b28c-ae9e-4939-a5d9-cdc939a73f08)
 ![Screenshot 2024-05-17 201012](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/c0cfe06f-7ed7-46f6-a9b9-264415b391a0)
 ![Screenshot 2024-05-17 231639](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/f4a02ecf-6565-4466-b791-b359525129c8)
