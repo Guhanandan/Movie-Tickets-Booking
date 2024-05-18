@@ -71,8 +71,31 @@ router.post('/signup', async (req, res) => {
 ## Search: 
 Users can search for movies by name, date, and theater name.
 ```
-
+router.get('/search', async (req, res) => {
+  try {
+    const { movieName, releaseDate, theatreName } = req.query;
+    const query = {}
+    if (movieName) {
+      query['movies.movieID.movie_name'] = { $regex: movieName, $options: 'i' };
+    }
+    if (releaseDate) {
+      query['movies.movieID.release_date'] = releaseDate;
+    }
+    if (theatreName) {
+      query.name = {$regex : theatreName , $options : 'i'}
+    }
+    const availableTheatres = await Theatre.find(query).populate('movies.movieID')
+    res.status(200).json(availableTheatres)
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 ```
+![Screenshot 2024-05-18 210044](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/127046fb-5df5-4854-91ee-926df0553345)
+
+
 ## Booking:
 Users can book tickets based on availability. (Assuming the default seats count is 60)
 ```
@@ -106,11 +129,6 @@ router.post('/booking' , async (req,res)=>{
 
 
 # Admin Use Cases:
-## Login: 
-Admins have a separate login interface to access admin functionalities.
-```
-
-```
 
 ## Add Movie: 
 Admins can add new movies to the system.
