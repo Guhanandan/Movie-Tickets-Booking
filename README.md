@@ -66,6 +66,7 @@ router.post('/signup', async (req, res) => {
 });
 ```
 ![Screenshot 2024-05-18 083740](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/a8a4a0c8-dc1f-4b23-bdb3-71b8a16eff63)
+![Screenshot 2024-05-18 124234](https://github.com/Guhanandan/Movie-Tickets-Booking/assets/100425381/9f6c39b0-c0fd-492b-8c76-d2c502eb5611)
 
 ## Search: 
 Users can search for movies by name, date, and theater name.
