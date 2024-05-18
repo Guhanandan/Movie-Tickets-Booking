@@ -1,6 +1,6 @@
 # Movie-Tickets-Booking Application
 
-### This project involves creating a web application for movie ticket booking with different functionalities for users and administrators. I only focussed on backend development.
+### This project involves creating a web application for movie ticket booking with different functionalities for users and administrators. I only focussed on backend development by building APIs in NodeJS.
 
 # Tech Stack:
 ## Back-end: 
