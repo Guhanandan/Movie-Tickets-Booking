@@ -1,0 +1,82 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Movie list styles */
+.movie-list {
+    margin-top: 20px;
+}
+
+.movie-list h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.movie-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-list li {
+    width: calc(50% - 20px);
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.movie-list li img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.movie-list li h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.movie-list li p {
+    margin-top: 5px;
+}
+
+.movie-list li button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.movie-list li button:hover {
+    background-color: #555;
+}
