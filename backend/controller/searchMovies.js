@@ -50,4 +50,17 @@ const bookingMovies = async (req,res)=>{
     }
 }
 
-module.exports = {searchMovies , bookingMovies}
+// get all the movies
+const getAllMovies = async (req , res) => {
+  try{
+    console.log(req.url);
+    const movies = await Movie.find();
+    res.status(200).json(movies);
+  }
+  catch (err) {
+    console.log(err);
+    res.status(500).json({error : err.message});
+  }
+}
+
+module.exports = {searchMovies , bookingMovies , getAllMovies};

@@ -1,8 +1,11 @@
 const express = require('express');
 
-const { searchMovies, bookingMovies } = require('../controller/searchMovies');
+const { searchMovies, bookingMovies , getAllMovies} = require('../controller/searchMovies');
 
 const router = express.Router();
+
+// get all movies
+router.get('/' , getAllMovies);
 
 // Search movies route
 router.get('/search',searchMovies);

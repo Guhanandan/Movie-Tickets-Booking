@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Booking</title>
+  <head>
+    <title>Movie booking</title>
     <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Guhanandan Movie Booking Application</h1>
+        <img class="book-my-show-logo" src="./bookmyshowlogo.png" alt="bookmyshowlogo">
+        <input class="search-box" type="text" placeholder="Search for Movies">
+        <a class="sign-in" href="./signinpage.html">sign in</a>
+        <a class="sign-up" href="./signuppage.html">sign up</a>
     </header>
 
     <main>
         <section class="movie-list">
             <h2>Now Showing</h2>
-            <ul>
+            <div id="roots"></div>
+            <script type="module" src="../src/main.jsx"></script>
+            <!-- <ul>
                 <li>
                     <img src="movie1.jpg" alt="Movie 1">
                     <h3>Movie 1</h3>
@@ -33,13 +36,14 @@
                     <p>Description of Movie 2</p>
                     <button onclick="">Book Now</button>
                 </li>
-                <!-- Add more movies as needed -->
-            </ul>
+                
+            </ul> -->
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Movie Booking</p>
     </footer>
-</body>
+    
+  </body>
 </html>

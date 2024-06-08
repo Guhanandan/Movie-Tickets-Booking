@@ -6,11 +6,11 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    
 }
+
 
 main {
     padding: 20px;
@@ -24,6 +24,30 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.search-box {
+    padding : 10px;
+    width: 30%;
+    border-radius: 8px;
+    border: 1px solid rgb(193, 192, 192);
+}
+
+.book-my-show-logo {
+    padding-left: 20px;
+    padding-right: 200px;
+}
+
+.sign-in {
+    text-decoration: none;
+    padding: 50px;
+    color: #555;
+}
+
+.sign-up {
+    text-decoration: none;
+    padding: 50px;
+    color: #555;
 }
 
 /* Movie list styles */
