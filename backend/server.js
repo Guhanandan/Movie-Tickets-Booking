@@ -15,9 +15,15 @@ app.get('/',(req,res)=>{
     res.status(200).json({message : "Message from node server"})
 })
 
-app.use('/api/user',userRoutes)
-app.use('/api/admin',adminRoutes)
-app.use('/api/movies' , movieRoutes)
+//http://localhost:3000/api/user/signup
+//http://localhost:3000/api/user/login
+app.use('/api/user',userRoutes);
+
+//
+app.use('/api/admin',adminRoutes);
+
+// GET 
+app.use('/api/movies' , movieRoutes);
 
 const connectDB = async ()=>{
     try{

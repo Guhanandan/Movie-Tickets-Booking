@@ -6,7 +6,7 @@ export default function Movie() {
     const [movies , setMovies] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/movies')
+        axios.get('http://localhost:3000/api/movies/get-movies')
             .then(responce => {
                 setMovies(responce.data);
             })
