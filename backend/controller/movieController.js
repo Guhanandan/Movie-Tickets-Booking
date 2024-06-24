@@ -32,7 +32,7 @@ const bookingMovies = async (req,res)=>{
     const {userID,theatreID,movieID,numberOfSeats} = req.body;
     const theatre = await Theatre.findById(theatreID);
 
-    //find movie in that particular theatre
+    //find movie in particular theatre
     const movie = theatre.movies.find(movie => movie.movieID.equals(movieID));
 
     // calculate for the total amount for the total seats booking
