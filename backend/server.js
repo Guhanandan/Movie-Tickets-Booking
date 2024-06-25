@@ -15,6 +15,15 @@ app.get('/',(req,res)=>{
     res.status(200).json({message : "Message from node server"})
 })
 
+app.get('/hello-world' , (request , responce) => {
+    try{
+        responce.status(200).json({message : "Hello World"});
+    }
+    catch(err){
+        responce.status(500).json({message : err});
+    }
+})
+
 //http://localhost:3000/api/user/signup
 //http://localhost:3000/api/user/login
 app.use('/api/user',userRoutes);
