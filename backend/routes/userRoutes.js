@@ -9,17 +9,19 @@ const router = express.Router();
 // Signup route
 router.post('/signup', async (req ,res) => {
   try {
-      console.log(req.body)
+      
       const { firstName, lastName, email, phone, password, confirmPassword } = req.body;
-      console.log("Post request from the frontend");
-      // console.log(firstName + lastName + email);
+      
       if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
           return res.status(400).json({ message: 'All fields are required' });
       }
-      // Check if user already exists
+
+      // check if password and confirmpassword matches
       if(password !== confirmPassword){
           return res.status(400).json({message : "password and confirm password don't match"})
       }
+
+      // Check if user already exists
       const existingUser = await User.findOne({ email });
       if (existingUser) {
           return res.status(400).json({ message: 'User already exists' });
@@ -40,9 +42,9 @@ router.post('/signup', async (req ,res) => {
 // Login route
 router.post('/login',  async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     // Check if user exists
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
@@ -52,7 +54,7 @@ router.post('/login',  async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
     // Create and send JWT token
-    const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, 'secret_key', { expiresIn: '1h' });
     res.status(200).json({ token });
     
   } catch (error) {

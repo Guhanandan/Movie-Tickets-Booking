@@ -9,12 +9,14 @@ const bodyParser = require('body-parser')
 const app = express()
 
 app.use(cors())
-app.use(express.json())
 app.use(bodyParser.json())
+
+// http://localhost:3000/
 app.get('/',(req,res)=>{
     res.status(200).json({message : "Message from node server"})
 })
 
+// http:localhost:3000/hellow-world
 app.get('/hello-world' , (request , responce) => {
     try{
         responce.status(200).json({message : "Hello World"});
@@ -24,15 +26,27 @@ app.get('/hello-world' , (request , responce) => {
     }
 })
 
-//http://localhost:3000/api/user/signup
-//http://localhost:3000/api/user/login
-app.use('/api/user',userRoutes);
+// POST request
+//http://localhost:3000/api/v1/user/signup
+//http://localhost:3000/api/v1/user/login
+app.use('/api/v1/user',userRoutes);
 
-//
-app.use('/api/admin',adminRoutes);
+//POST request
+//http://localhost:3000/api/v1/admin/add-movie
+//http://localhost:3000/api/v1/admin/add-theatre
+
+//GET requst
+//http://localhost:3000/api/v1/admin/get-theatres
+//http://localhost:3000/api/v1/admin/view-bookings
+app.use('/api/v1/admin',adminRoutes);
 
 // GET 
-app.use('/api/movies' , movieRoutes);
+//http://localhost:3000/api/v1/movies/get-movies
+//http://localhost:3000/api/v1/movies/search
+
+//POST
+//http://localhost:3000/api/v1/movies/booking
+app.use('/api/v1/movies' , movieRoutes);
 
 const connectDB = async ()=>{
     try{

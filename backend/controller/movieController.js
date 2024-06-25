@@ -6,13 +6,11 @@ const searchMovies =  async (req, res) => {
   try {
     const { movieName, releaseDate, theatreName } = req.query;
     const query = {}
-    console.log(movieName);
-    console.log(theatreName);
     if (movieName) {
-      query[movies.movieID.movie_name] = { $regex: movieName, $options: 'i' };
+      query['movies.movieID.movie_name'] = { $regex: movieName, $options: 'i' };
     }
     if (releaseDate) {
-      query[movies.movieID.release_date] = releaseDate;
+      query['movies.movieID.release_date'] = releaseDate;
     }
     if (theatreName) {
       query['name'] = { $regex: new RegExp('^' + theatreName + '$', 'i') }
